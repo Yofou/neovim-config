@@ -35,6 +35,7 @@ map("n", "<C-K>", ":NvimTreeToggle<CR>", opt) -- Toggle Folder Tree
 map("n", "<S-Up>", "{", opt) -- Next Empty Space Up
 map("n", "<S-Down>", "}", opt) -- Next Empty Space Down
 map("n", "<C-H>", "v:lua vim.lsp.buf.hover()<CR>", opt) -- opens up more info on cursor
+map("n", "<C-J>", "v:lua vim.lsp.buf.definition()<CR>", opt) -- opens up more info on cursor
 map("n", "<C-_>", "v:lua.require(\"comment\").empty_comment()", { expr = true, silent = true, noremap = true })
 map("v", "<C-_>", "v:lua.require(\"comment\").empty_comment()", { expr = true, silent = true, noremap = true })
 

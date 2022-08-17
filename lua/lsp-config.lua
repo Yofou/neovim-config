@@ -60,7 +60,7 @@ lsp_installer.on_server_ready(function(server)
 	server:setup(opts)
 end)
 
-local luasnip = require('luasnip')
+-- local luasnip = require('luasnip')
 local cmp = require('cmp')
 
 cmp.setup {
@@ -77,24 +77,25 @@ cmp.setup {
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		},
-		['<Tab>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end,
-		['<S-Tab>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end,
+		-- Add this back in later if tab is still breaking sometimes
+		-- ['<Tab>'] = function(fallback)
+			-- if cmp.visible() then
+				-- cmp.select_next_item()
+			-- elseif luasnip.expand_or_jumpable() then
+				-- luasnip.expand_or_jump()
+			-- else
+				-- fallback()
+			-- end
+		-- end,
+		-- ['<S-Tab>'] = function(fallback)
+			-- if cmp.visible() then
+				-- cmp.select_prev_item()
+			-- elseif luasnip.jumpable(-1) then
+				-- luasnip.jump(-1)
+			-- else
+				-- fallback()
+			-- end
+		-- end,
 	},
 	sources = {
 		{ name = "nvim_lsp" },
