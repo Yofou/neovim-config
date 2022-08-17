@@ -38,7 +38,10 @@ return require("packer").startup(function (use)
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use 'udalov/kotlin-vim'
 	use 'posva/vim-vue'
-	use 'williamboman/nvim-lsp-installer'
+	use {
+		'williamboman/mason.nvim'
+	}
+	use 'williamboman/mason-lspconfig.nvim'
 	use "pangloss/vim-javascript"
 	use "folke/trouble.nvim"
 	use "winston0410/commented.nvim"
@@ -53,4 +56,5 @@ return require("packer").startup(function (use)
 		run="yarn install --frozen-lockfile --production"
 	}
 	use "styled-components/vim-styled-components"
+	use "jose-elias-alvarez/null-ls.nvim"
 end)

@@ -1,64 +1,27 @@
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-local lspconfig = require('lspconfig')
-lspconfig.tailwindcss.setup {}
 
-local lsp_installer = require('nvim-lsp-installer')
-lsp_installer.on_server_ready(function(server)
-	local opts = {}
+local lspconfig = require("lspconfig")
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers {
+	function (server_name)
+		lspconfig[server_name].setup {}
+	end,
 
-	if (server.name == 'sumneko_lua') then
-		opts.settings = {
-			Lua = {
-				diagnostics = {
-					globals = { 'vim' }
+	["sumneko_lua"] = function ()
+		lspconfig.sumneko_lua.setup {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" }
+					}
 				}
 			}
 		}
 	end
-
-	if (server.name == 'eslint') then
-		opts.filetypes = {
-			'javascript',
-			'javascriptreact',
-			'javascript.jsx',
-			'typescript',
-			'typescriptreact',
-			'typescript.tsx',
-			'vue',
-			'svelte',
-		}
-
-		opts.settings = {
-			packageManager = "pnpm"
-		}
-
-		opts.on_attach = function (client)
-			client.resolved_capabilities.document_formatting = true
-		end
-	end
-
-	if (server.name == "emmet_ls") then
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-		opts = {
-			filetypes = { "html", "typescriptreact", "javascriptreact" },
-			capabilities = capabilities
-		}
-	end
-
-	if (server.name == "cssls") then
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-		opts = {
-			capabilities = capabilities
-		}
-	end
-
-	server:setup(opts)
-end)
+}
 
 -- local luasnip = require('luasnip')
 local cmp = require('cmp')

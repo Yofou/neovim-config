@@ -1,6 +1,5 @@
 require("plugins")
 require('lsp-config')
-require("astro-ls")
 
 vim.o.number = true
 vim.o.tabstop = 4
