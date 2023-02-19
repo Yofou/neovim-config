@@ -1,8 +1,10 @@
-local commented_line = require("commented.init").commented_line
-local function foo()
-	return commented_line()
-end
-
-return {
-	empty_comment = foo
-}
+require('commented').setup({
+	keybindings = {
+		v = "/"
+	},
+	prefer_block_comment = true,
+	block_cms = {
+		typescriptreact = { block = "{/* %s */}" }
+	},
+	set_keybindings = true
+})
