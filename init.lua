@@ -11,6 +11,8 @@ vim.cmd("colorscheme spaceduck")
 vim.g.lightline = { colorscheme = "spaceduck" }
 vim.g.polyglot_disabled = { "svelte", "vue" }
 vim.o.clipboard = "unnamedplus"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.cmd([[
 augroup JsonToJsonc
@@ -47,3 +49,16 @@ map("n", "<C-Left>", "<C-W>h", opt)
 map("n", "<C-Down>", "<C-W>j", opt)
 map("n", "<C-Up>", "<C-W>k", opt)
 map("n", "<C-Right>", "<C-W>l", opt)
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = function (data)
+  	-- buffer is a directory
+  	local directory = vim.fn.isdirectory(data.file) == 1
+
+  	if not directory then
+    	return
+  	end
+
+  	-- change to the directory
+  	vim.cmd.cd(data.file)
+	require('nvim-tree.api').tree.open()
+end })
