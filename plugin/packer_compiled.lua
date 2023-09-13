@@ -104,6 +104,12 @@ _G.packer_plugins = {
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
+  ["image_preview.nvim"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18image_preview\frequire\0" },
+    loaded = true,
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/image_preview.nvim",
+    url = "https://github.com/adelarsq/image_preview.nvim"
+  },
   ["kotlin-vim"] = {
     loaded = true,
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/kotlin-vim",
@@ -113,6 +119,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/lightline.vim",
     url = "https://github.com/itchyny/lightline.vim"
+  },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -134,6 +145,11 @@ _G.packer_plugins = {
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -144,6 +160,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -166,10 +197,10 @@ _G.packer_plugins = {
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
   },
-  spaceduck = {
+  ["spelunker.vim"] = {
     loaded = true,
-    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/spaceduck",
-    url = "https://github.com/pineapplegiant/spaceduck"
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/spelunker.vim",
+    url = "https://github.com/kamykn/spelunker.vim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -187,20 +218,15 @@ _G.packer_plugins = {
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
-  ["vim-astro"] = {
-    loaded = true,
-    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-astro",
-    url = "https://github.com/wuelnerdotexe/vim-astro"
-  },
   ["vim-fish"] = {
     loaded = true,
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-fish",
     url = "https://github.com/dag/vim-fish"
   },
-  ["vim-javascript"] = {
+  ["vim-node-inspect"] = {
     loaded = true,
-    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-javascript",
-    url = "https://github.com/pangloss/vim-javascript"
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-node-inspect",
+    url = "https://github.com/eliba2/vim-node-inspect"
   },
   ["vim-prettier"] = {
     loaded = true,
@@ -217,27 +243,26 @@ _G.packer_plugins = {
     path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-styled-components",
     url = "https://github.com/styled-components/vim-styled-components"
   },
-  ["vim-svelte"] = {
+  ["zenbones.nvim"] = {
     loaded = true,
-    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-svelte",
-    url = "https://github.com/evanleck/vim-svelte"
-  },
-  ["vim-vue"] = {
-    loaded = true,
-    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/vim-vue",
-    url = "https://github.com/posva/vim-vue"
+    path = "/home/yofou/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
+    url = "https://github.com/mcchrish/zenbones.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\nY\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\tview\1\0\0\1\0\1\tside\nright\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
+-- Config for: image_preview.nvim
+time([[Config for image_preview.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18image_preview\frequire\0", "config", "image_preview.nvim")
+time([[Config for image_preview.nvim]], false)
 -- Config for: presence.nvim
 time([[Config for presence.nvim]], true)
 try_loadstring("\27LJ\2\n>\0\0\4\0\3\0\b6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0004\3\0\0B\0\3\1K\0\1\0\nsetup\rpresence\frequire\0", "config", "presence.nvim")
 time([[Config for presence.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\nY\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\tview\1\0\0\1\0\1\tside\nright\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n«\1\0\0\5\0\n\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\t\0B\0\2\1K\0\1\0\bfzf\19load_extension\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\2\0\0\17node_modules\nsetup\14telescope\frequire\0", "config", "telescope.nvim")

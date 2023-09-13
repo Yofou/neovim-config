@@ -1,6 +1,4 @@
 return require("packer").startup(function (use)
-    use 'pineapplegiant/spaceduck'
-    use 'evanleck/vim-svelte'
     use 'dag/vim-fish'
     use {
 		'nvim-telescope/telescope.nvim',
@@ -38,12 +36,11 @@ return require("packer").startup(function (use)
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use 'udalov/kotlin-vim'
-	use 'posva/vim-vue'
 	use {
 		'williamboman/mason.nvim'
 	}
 	use 'williamboman/mason-lspconfig.nvim'
-	use "pangloss/vim-javascript"
+	--  use "pangloss/vim-javascript"
 	use "folke/trouble.nvim"
 	use "winston0410/commented.nvim"
 	use {
@@ -58,5 +55,23 @@ return require("packer").startup(function (use)
 	}
 	use "styled-components/vim-styled-components"
 	use "jose-elias-alvarez/null-ls.nvim"
-	use "wuelnerdotexe/vim-astro"
+	use "kamykn/spelunker.vim"
+	use "nvim-treesitter/nvim-treesitter"
+	use "nvim-treesitter/nvim-treesitter-context"
+	use "JoosepAlviste/nvim-ts-context-commentstring"
+	use "norcalli/nvim-colorizer.lua"
+	use {
+		"mcchrish/zenbones.nvim",
+		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
+		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+		-- In Vim, compat mode is turned on as Lush only works in Neovim.
+		requires = "rktjmp/lush.nvim"
+	}
+	use "eliba2/vim-node-inspect"
+	use {
+		"adelarsq/image_preview.nvim",
+		config = function ()
+			require("image_preview").setup({})
+		end
+	}
 end)

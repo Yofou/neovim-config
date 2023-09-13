@@ -20,7 +20,32 @@ require("mason-lspconfig").setup_handlers {
 				}
 			}
 		}
-	end
+	end,
+	['denols'] = function ()
+		lspconfig.denols.setup {
+			root_dir = lspconfig.util.root_pattern("deno.json"),
+			init_options = {
+				lint = true,
+			},
+		}
+	end,
+	['tsserver'] = function ()
+		lspconfig.tsserver.setup {
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			init_options = {
+				lint = true,
+			},
+			single_file_support = false,
+		}
+	end,
+
+	['cssls'] = function ()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+		lspconfig.cssls.setup {
+			capabilities = capabilities
+		}
+	end,
 }
 
 -- local luasnip = require('luasnip')
