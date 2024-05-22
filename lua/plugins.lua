@@ -25,7 +25,6 @@ return require("packer").startup(function (use)
 				side = "right"
 			}
 		} end,
-		tag = 'nightly'
 	}
 	use {
 		'romgrk/barbar.nvim',

@@ -26,6 +26,7 @@ augroup JsonToJsonc
 augroup END
 ]])
 
+
 -- This is to fix pair-tree & telescope having conflicting behaviors
 vim.g.pear_tree_ft_disabled = { "TelescopePrompt" }
 vim.g.pear_tree_repeatable_expand = 0

@@ -5,6 +5,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 local lspconfig = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup()
+
 require("mason-lspconfig").setup_handlers {
 	function (server_name)
 		lspconfig[server_name].setup {}
@@ -31,11 +32,20 @@ require("mason-lspconfig").setup_handlers {
 	end,
 	['tsserver'] = function ()
 		lspconfig.tsserver.setup {
-			root_dir = lspconfig.util.root_pattern("package.json"),
 			init_options = {
-				lint = true,
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "/usr/lib/node_modules/@vue/typescript-plugin",
+						languages = {"javascript", "typescript", "vue"},
+					},
+				},
 			},
-			single_file_support = false,
+			filetypes = {
+				"javascript",
+				"typescript",
+				"vue",
+			},
 		}
 	end,
 
