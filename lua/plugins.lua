@@ -4,13 +4,61 @@ return require("packer").startup(function (use)
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzf-native.nvim', run = "make"} },
 		config = function ()
-			require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules" } } }
+			require("telescope").setup({
+				defaults = {
+					entry_prefix = " ",
+					scroll_strategy = "limit",
+					prompt_prefix = "   ",
+					path_display = { "truncate" },
+					winblend = 0,
+					border = {},
+					borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+					layout_config = {
+						horizontal = {
+							preview_width = 0.55,
+							results_width = 0.8,
+						},
+						vertical = {
+							mirror = false,
+						},
+						width = 0.87,
+						height = 0.80,
+						preview_cutoff = 120,
+					},
+					file_ignore_patterns = {
+						".git/",
+						"venv",
+						"node_modules/",
+					},
+					dynamic_preview_title = true,
+					vimgrep_arguments = {
+						"rg",
+						"--ignore",
+						"--hidden",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+						"--trim",
+					},
+				},
+				extensions = {
+					fzf = {
+						fuzzy = true,
+						override_generic_sorter = true,
+						override_file_sorter = true,
+						case_mode = "smart_case",
+					},
+				},
+			})
 			-- To get fzf loaded and working with telescope, you need to call
 			-- load_extension, somewhere after setup function:
 			require('telescope').load_extension('fzf')
 		end
 	}
-    use 'itchyny/lightline.vim'
+    use 'nvim-lualine/lualine.nvim'
     use 'neovim/nvim-lspconfig'
     use 'tmsvg/pear-tree'
     use 'pantharshit00/vim-prisma'
@@ -73,4 +121,6 @@ return require("packer").startup(function (use)
 			require("image_preview").setup({})
 		end
 	}
+
+	use "dgox16/oldworld.nvim"
 end)
