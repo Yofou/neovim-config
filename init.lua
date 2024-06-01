@@ -21,9 +21,9 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.spelunker_highlight_type = 2
 
 vim.cmd([[
-augroup JsonToJsonc
-	autocmd! FileType json set filetype=jsonc
-augroup END
+ augroup JsonToJsonc
+ 	autocmd! FileType json set filetype=jsonc
+ augroup END
 ]])
 
 
