@@ -96,10 +96,6 @@ return require("packer").startup(function (use)
 			require('presence'):setup({})
 		end
 	}
-	--[[ use  {
-		"prettier/vim-prettier",
-		run="yarn install --frozen-lockfile --production"
-	} --]]
 	use "styled-components/vim-styled-components"
 	use "jose-elias-alvarez/null-ls.nvim"
 	use "kamykn/spelunker.vim"
