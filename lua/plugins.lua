@@ -117,6 +117,6 @@ return require("packer").startup(function (use)
 			require("image_preview").setup({})
 		end
 	}
-
 	use "dgox16/oldworld.nvim"
+	use "sindrets/diffview.nvim"
 end)
