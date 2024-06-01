@@ -1,0 +1,11 @@
+{
+  "Base Editor config": {
+    "prefix": "edconfig",
+    "body": [
+		  "[*]",
+      "indent_style = space",
+      "indent_size = 2",
+    ],
+    "description": "Vue 3 Component Boilerplate with Setup Script"
+  },
+}

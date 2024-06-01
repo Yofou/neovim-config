@@ -1,0 +1,11 @@
+{
+  "Tailwind Css config": {
+    "prefix": "tailwindconfig",
+    "body": [
+      "@tailwind base;",
+      "@tailwind components;",
+      "@tailwind utilities;"
+    ],
+    "description": "Vue 3 Component Boilerplate with Setup Script"
+  }
+}

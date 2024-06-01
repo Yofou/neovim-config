@@ -1,0 +1,30 @@
+{
+  "Vue 3 Component Boilerplate": {
+    "prefix": "vue3comp",
+    "body": [
+      "<template>",
+      "\t<div>",
+      "\t\t$1",
+      "\t</div>",
+      "</template>",
+      "",
+      "<script setup>",
+      "///// props/emits /////",
+      "const props = defineProps({",
+      "\t$2",
+      "});",
+      "",
+      "///// refs/provide-inject/variables /////",
+      "",
+      "///// computed /////",
+      "",
+      "///// methods /////",
+      "",
+      "///// watchers /////",
+      "",
+      "///// lifecycle /////",
+      "</script>",
+    ],
+    "description": "Vue 3 Component Boilerplate with Setup Script"
+  }
+}

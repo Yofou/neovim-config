@@ -1,0 +1,26 @@
+{
+		"name": "personal",
+		"contributes": {
+				"snippets": [
+						{
+								"language": [
+										"all"
+								],
+								"path": "./all.code-snippets"
+						},
+						{
+								"language": [
+										"vue"
+								],
+								"path": "./vue.code-snippets"
+						},
+
+						{
+								"language": [
+										"css"
+								],
+								"path": "./css.code-snippets"
+						}
+				]
+		}
+}
