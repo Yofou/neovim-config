@@ -4,6 +4,10 @@ require("lsp-config")
 require("comment")
 require('luasnip_local')
 
+require('trouble').setup {
+  cmd = "Trouble"
+}
+
 vim.filetype.add({
 	extension = {
 		mdx = "markdown.mdx",
@@ -50,7 +54,7 @@ map("n", "<C-J>", "v:lua vim.lsp.buf.definition()<CR>", opt) -- opens up more in
 -- Move between tabs left & right
 map("n", "<A-Left>", ":BufferPrevious<CR>", opt)
 map("n", "<A-Right>", ":BufferNext<CR>", opt)
-map("n", "<A-q>", ":BufferClose<CR>", opt)
+map("n", "œ", ":BufferClose<CR>", opt)
 
 -- Move panels in all direction useing Ctrl + <Arrow Keys>
 map("n", "<C-Left>", "<C-W>h", opt)

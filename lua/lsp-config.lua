@@ -2,17 +2,14 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup {}
+local Path = require("plenary.path");
 
-require("mason-lspconfig").setup_handlers {
-	function (server_name)
-		lspconfig[server_name].setup {}
-	end,
-
+local setup_handlers = {
 	["lua_ls"] = function ()
-		lspconfig.lua_ls.setup {
+		vim.lsp.config.lua_ls = {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -23,27 +20,37 @@ require("mason-lspconfig").setup_handlers {
 		}
 	end,
 	['denols'] = function ()
-		lspconfig.denols.setup {
-			root_dir = lspconfig.util.root_pattern("deno.json"),
+		vim.lsp.config.denols = {
+			root_dir = vim.lsp.config.util.root_pattern("deno.json"),
 			init_options = {
 				lint = true,
 			},
 		}
 	end,
 	['tsserver'] = function ()
-		lspconfig.tsserver.setup {
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    --  print('boop')
+		vim.lsp.config.tsserver = {
+      capabilities = capabilities,
 			init_options = {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
-						location = "/usr/lib/node_modules/@vue/typescript-plugin",
+						location = "/Users/nathanewen/.local/share/nvm/v20.15.1/lib/node_modules/@vue/typescript-plugin",
 						languages = {"javascript", "typescript", "vue"},
 					},
 				},
+        preferences = {
+            disableSuggestions = true,
+        }
 			},
 			filetypes = {
 				"javascript",
+        "javascriptreact",
+        "javascript.jsx",
 				"typescript",
+        "typescriptreact",
+        "typescript.tsx",
 				"vue",
 			},
 		}
@@ -52,11 +59,32 @@ require("mason-lspconfig").setup_handlers {
 	['cssls'] = function ()
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
-		lspconfig.cssls.setup {
+		lspconfig.cssls = {
 			capabilities = capabilities
 		}
 	end,
+
+  ['eslint'] = function ()
+    local nodePath = Path:new('./.yarn/sdks'):absolute() or ""
+		vim.lsp.config.eslint = {
+			settings = {
+        nodePath = nodePath,
+        format = false,
+        run = "onType",
+        validate = "on",
+        workspaceDirectory = {
+          mode = "location",
+        },
+      }
+		}
+	end,
 }
+
+setup_handlers["lua_ls"]()
+setup_handlers["tsserver"]()
+-- setup_handlers["denols"]()
+setup_handlers["cssls"]()
+setup_handlers["eslint"]()
 
 -- local luasnip = require('luasnip')
 local cmp = require('cmp')
@@ -75,6 +103,7 @@ cmp.setup {
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		},
+    ["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		-- Add this back in later if tab is still breaking sometimes
 		-- ['<Tab>'] = function(fallback)
 			-- if cmp.visible() then
