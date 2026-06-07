@@ -5,8 +5,11 @@ require('colorizer').setup()
 require('oldworld').setup ({
   --  variant = "cooler"
 })
+require('vesper').setup ({
+  --  variant = "cooler"
+})
 
-vim.cmd.colorscheme("oldworld")
+vim.cmd.colorscheme("vesper")
 
 local colors = require('oldworld.palette')
 

@@ -17,7 +17,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'astro', 'css', 'glimmer', 'graphql', 'html', 'javascript',
 	'lua', 'php', 'python', 'scss', 'svelte', 'tsx', 'twig',
-	'typescript', 'vim', 'vue',
+	'typescript', 'vim', 'vue', 'jsdoc',
   },
 
   sync_install = false,

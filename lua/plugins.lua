@@ -116,7 +116,7 @@ return require("pckr").add{
 	"styled-components/vim-styled-components";
 	"nvimtools/none-ls.nvim";
 	"kamykn/spelunker.vim";
-	"nvim-treesitter/nvim-treesitter";
+  { "nvim-treesitter/nvim-treesitter", branch = "master" };
 	"nvim-treesitter/nvim-treesitter-context";
 	"JoosepAlviste/nvim-ts-context-commentstring";
 	"norcalli/nvim-colorizer.lua";
@@ -135,5 +135,6 @@ return require("pckr").add{
 		end
 	};
 	"dgox16/oldworld.nvim";
+  "datsfilipe/vesper.nvim";
 	"sindrets/diffview.nvim";
 }
