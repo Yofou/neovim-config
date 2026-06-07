@@ -32,6 +32,9 @@ vim.cmd([[
 ]])
 
 
+vim.diagnostic.config({ virtual_text = true })
+
+
 -- This is to fix pair-tree & telescope having conflicting behaviors
 vim.g.pear_tree_ft_disabled = { "TelescopePrompt" }
 vim.g.pear_tree_repeatable_expand = 0

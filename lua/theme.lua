@@ -1,9 +1,12 @@
-vim.cmd.colorscheme "oldworld"
 --  vim.g.lightline = { colorscheme = "oldworld" }
 vim.o.termguicolors = true
 
 require('colorizer').setup()
-require('oldworld').setup ({})
+require('oldworld').setup ({
+  --  variant = "cooler"
+})
+
+vim.cmd.colorscheme("oldworld")
 
 local colors = require('oldworld.palette')
 
@@ -106,7 +109,7 @@ local function getLspName()
     local buf_client_names = {}
 
     for _, client in pairs(buf_clients) do
-        if client.name ~= "null-ls" then
+        if client.name ~= "none-ls" then
             table.insert(buf_client_names, client.name)
         end
     end
