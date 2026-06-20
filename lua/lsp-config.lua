@@ -112,6 +112,13 @@ local setup_handlers = {
 	end,
 }
 
+vim.lsp.config.clangd = {
+  cmd = {
+    "clangd",
+    "--query-driver=/Users/nathanewen/.espressif/tools/xtensa-esp-elf/**/xtensa-esp*-elf-g++,/Users/nathanewen/.platformio/packages/toolchain-xtensa-esp32s3/bin/xtensa-esp32s3-elf-g++",
+  },
+}
+
 setup_handlers["lua_ls"]()
 setup_handlers["tsserver"]()
 -- setup_handlers["denols"]()
@@ -119,9 +126,35 @@ setup_handlers["cssls"]()
 setup_handlers["eslint"]()
 
 -- local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 local cmp = require('cmp')
 
 cmp.setup {
+  window = {
+    completion = {
+      border = "rounded",       -- rounded uses │ ─ corners etc
+      winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+      col_offset = -3,
+      side_padding = 1,         -- this is the padding (0 = none, 1 = one space each side)
+    },
+    documentation = {
+      border = "rounded",
+      winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder",
+    },
+  },
+  format = function(entry, vim_item)
+    vim_item = lspkind.cmp_format({
+
+    })(entry, vim_item)
+
+    local kind = vim_item.kind or "Text"
+    vim_item.kind = " " .. kind .. " "
+    vim_item.kind_hl_group = "CmpItemKind" .. kind
+    vim_item.menu = ""         -- clear menu so it doesn't show source name
+    vim_item.menu_hl_group = "CmpItemKind" .. kind  -- extend bg into menu column
+
+    return vim_item
+  end,
 	snippet = {
 		expand = function(args)
 			require('luasnip').lsp_expand(args.body)
@@ -136,28 +169,11 @@ cmp.setup {
 			select = false,
 		},
     ["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		-- Add this back in later if tab is still breaking sometimes
-		-- ['<Tab>'] = function(fallback)
-			-- if cmp.visible() then
-				-- cmp.select_next_item()
-			-- elseif luasnip.expand_or_jumpable() then
-				-- luasnip.expand_or_jump()
-			-- else
-				-- fallback()
-			-- end
-		-- end,
-		-- ['<S-Tab>'] = function(fallback)
-			-- if cmp.visible() then
-				-- cmp.select_prev_item()
-			-- elseif luasnip.jumpable(-1) then
-				-- luasnip.jump(-1)
-			-- else
-				-- fallback()
-			-- end
-		-- end,
 	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" }
 	},
 }
+
+vim.api.nvim_set_hl(0, "CmpSel", { bg = "#343434", bold = true })

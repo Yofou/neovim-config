@@ -16,6 +16,11 @@ vim.filetype.add({
 	pattern = {},
 })
 
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "checktime",
+})
+
 vim.o.number = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 4
@@ -33,6 +38,19 @@ vim.cmd([[
 
 
 vim.diagnostic.config({ virtual_text = true })
+
+vim.api.nvim_set_hl(0, "TermNormal", { bg = "#282828" })
+vim.api.nvim_create_autocmd("User", {
+  pattern = "ClaudeCodeDiffOpened",
+  callback = function(args)
+    local terminal_win = args.data and args.data.terminal_window
+    vim.schedule(function()
+      if terminal_win and vim.api.nvim_win_is_valid(terminal_win) then
+        vim.api.nvim_win_set_option(terminal_win, "winhighlight", "Normal:TermNormal,NormalNC:TermNormal")
+      end
+    end)
+  end,
+})
 
 
 -- This is to fix pair-tree & telescope having conflicting behaviors

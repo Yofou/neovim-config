@@ -229,3 +229,56 @@ require("lualine").setup({
         lualine_z = {},
     },
 })
+
+-- Vesper-themed CmpItemKind highlights
+-- Pulled from vesper's actual color assignments in init.lua
+
+local v = {
+  bg       = "#101010",  -- vesper bg
+  primary  = "#ff9940",  -- orange accent (operators, keywords, tags)
+  purple   = "#a393eb",  -- functions, methods, constructors, exceptions
+  green    = "#5ec46a",  -- strings
+  greenL   = "#82e2a6",  -- booleans, properties, labels
+  orange   = "#f5a26b",  -- types, @type, @property
+  orangeL  = "#ffc799",  -- special chars
+  white    = "#ffffff",  -- variables, constants
+  symbol   = "#666666",  -- punctuation / misc
+  comment  = "#555555",  -- comments
+}
+
+vim.api.nvim_set_hl(0, "CmpItemKindFunction",      { fg = v.bg, bg = v.purple })
+vim.api.nvim_set_hl(0, "CmpItemKindConstructor",   { fg = v.bg, bg = v.purple })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod",        { fg = v.bg, bg = v.purple })
+vim.api.nvim_set_hl(0, "CmpItemKindVariable",      { fg = v.bg, bg = v.white })
+vim.api.nvim_set_hl(0, "CmpItemKindConstant",      { fg = v.bg, bg = v.white })
+vim.api.nvim_set_hl(0, "CmpItemKindField",         { fg = v.bg, bg = v.greenL })
+vim.api.nvim_set_hl(0, "CmpItemKindProperty",      { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindEnumMember",    { fg = v.bg, bg = v.greenL })
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword",       { fg = v.bg, bg = v.primary })
+vim.api.nvim_set_hl(0, "CmpItemKindOperator",      { fg = v.bg, bg = v.primary })
+vim.api.nvim_set_hl(0, "CmpItemKindClass",         { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindInterface",     { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindStruct",        { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindModule",        { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindEnum",          { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = v.bg, bg = v.orange })
+vim.api.nvim_set_hl(0, "CmpItemKindString",        { fg = v.bg, bg = v.green })
+vim.api.nvim_set_hl(0, "CmpItemKindText",          { fg = v.bg, bg = v.comment })
+vim.api.nvim_set_hl(0, "CmpItemKindSnippet",       { fg = v.bg, bg = v.greenL })
+vim.api.nvim_set_hl(0, "CmpItemKindEvent",         { fg = v.bg, bg = v.primary })
+vim.api.nvim_set_hl(0, "CmpItemKindUnit",          { fg = v.bg, bg = v.orangeL })
+vim.api.nvim_set_hl(0, "CmpItemKindValue",         { fg = v.bg, bg = v.orangeL })
+vim.api.nvim_set_hl(0, "CmpItemKindColor",         { fg = v.bg, bg = v.orangeL })
+vim.api.nvim_set_hl(0, "CmpItemKindReference",     { fg = v.bg, bg = v.symbol })
+vim.api.nvim_set_hl(0, "CmpItemKindFile",          { fg = v.bg, bg = v.symbol })
+vim.api.nvim_set_hl(0, "CmpItemKindFolder",        { fg = v.bg, bg = v.symbol })
+
+-- Vivid diff highlights for diffview (vesper ships muted versions)
+vim.api.nvim_set_hl(0, "DiffAdd",                  { fg = "#5ec46a", bg = "#1a2e1a" })
+vim.api.nvim_set_hl(0, "DiffDelete",               { fg = "#f87171", bg = "#2e1a1a" })
+vim.api.nvim_set_hl(0, "DiffChange",               { fg = "#ffc799", bg = "#2e2a1a" })
+vim.api.nvim_set_hl(0, "DiffText",                 { fg = "#ffffff", bg = "#4a3a10", bold = true })
+vim.api.nvim_set_hl(0, "DiffviewDiffAdd",          { fg = "#5ec46a", bg = "#1a2e1a" })
+vim.api.nvim_set_hl(0, "DiffviewDiffDelete",       { fg = "#f87171", bg = "#2e1a1a" })
+vim.api.nvim_set_hl(0, "DiffviewDiffChange",       { fg = "#ffc799", bg = "#2e2a1a" })
+vim.api.nvim_set_hl(0, "DiffviewDiffText",         { fg = "#ffffff", bg = "#4a3a10", bold = true })
